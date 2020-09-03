@@ -89,7 +89,7 @@ function cardMaker(obj) {
   const cardUsername = document.createElement("p");
   const cardUserLocation = document.createElement("p");
   const cardUserProfile = document.createElement("p");
-  // const cardUserProfileHTML = document.createElement("a");
+  const cardUserProfileHTML = document.createElement("a");
   const cardUserFollowers = document.createElement("p");
   const cardUserFollowing = document.createElement("p");
   const cardUserBio = document.createElement("p");
@@ -99,8 +99,9 @@ function cardMaker(obj) {
   cardName.textContent = obj.name;
   cardUsername.textContent = obj.login;
   cardUserLocation.textContent = `Location: ${obj.location}`;
-  cardUserProfile.innerHTML = `Profile:<a href=${obj.html_url}>${obj.html_url}</a> `;
-  // cardUserProfileHTML.textContent = `${obj.html_url}`;
+  cardUserProfile.textContent = "Profile: ";
+  cardUserProfileHTML.textContent = `${obj.html_url}`;
+  cardUserProfileHTML.href = obj.html_url;
   cardUserFollowers.textContent = `Followers: ${obj.followers}`;
   cardUserFollowing.textContent = `Following: ${obj.following}`;
   cardUserBio.textContent = `Bio: ${obj.bio}`;
@@ -110,7 +111,6 @@ function cardMaker(obj) {
   cardInfo.classList.add("card-info");
   cardName.classList.add("name");
   cardUsername.classList.add("username");
-  // cardUserProfileHTML.setAttribute("href");
 
   //creating hierarchy
   const grabbingCards = document.querySelector(".cards");
@@ -121,7 +121,7 @@ function cardMaker(obj) {
   cardInfo.appendChild(cardUsername);
   cardInfo.appendChild(cardUserLocation);
   cardInfo.appendChild(cardUserProfile);
-  // cardUserProfile.appendChild(cardUserProfileHTML);
+  cardUserProfile.appendChild(cardUserProfileHTML);
   cardInfo.appendChild(cardUserFollowers);
   cardInfo.appendChild(cardUserFollowing);
   cardInfo.appendChild(cardUserBio);
